@@ -9,7 +9,7 @@ def generate_layers_h_names [] {
 }
 
 def generate_layers_h_keymaps [] {
-  let layers = $in | chunk-by {|r| $r.LAY}
+  let layers = $in | chunk-by { get LAY }
 
   $layers
   | enumerate
@@ -42,7 +42,7 @@ def generate_layers_h [] {
 }
 
 def generate_layers_rgb_h [keyboard_json: string] {
-  let layers = $in | chunk-by { get LAY} | each { reject LAY }
+  let layers = $in | chunk-by { get LAY } | each { reject LAY }
 
   let layout = open $keyboard_json
   | get rgb_matrix
@@ -57,8 +57,6 @@ def generate_layers_rgb_h [keyboard_json: string] {
     | flatten
   }
 
-  return $matrices
-
   let flat_colors = $matrices
   | each {|m|
       $layout
@@ -66,8 +64,6 @@ def generate_layers_rgb_h [keyboard_json: string] {
           $m | get $l.0 | get $'column($l.1)'
         }
     }
-
-  return $flat_colors
 
   let color_values = $flat_colors
   | enumerate

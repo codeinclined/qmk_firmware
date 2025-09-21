@@ -2,6 +2,7 @@
 RGB_MATRIX_EFFECT(ci_layers_rgb)
 
 #ifdef RGB_MATRIX_CUSTOM_EFFECT_IMPLS
+#include "./cp_colors.h"
 #include "./layers_colors.h"
 
 static bool ci_layers_rgb(effect_params_t* params) {
