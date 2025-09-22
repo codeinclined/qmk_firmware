@@ -17,7 +17,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include QMK_KEYBOARD_H
+
+enum {
+  UK_PSHL = SAFE_RANGE
+};
+
 #include "./layers.h"
+
+static uint8_t pushed_layer = 0;
 
 layer_state_t layer_state_set_user(layer_state_t state) {
   rgb_matrix_sethsv_noeeprom(get_highest_layer(state), 0, 0);
@@ -29,4 +36,35 @@ layer_state_t default_layer_state_set_user(layer_state_t state) {
   rgb_matrix_sethsv_noeeprom(get_highest_layer(state), 0, 0);
 
   return state;
+}
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+  case UK_PSHL:
+    if (record->event.pressed && pushed_layer == 0) {
+      pushed_layer = get_highest_layer(layer_state|default_layer_state);
+      tap_code(KC_ENTER);
+      set_single_default_layer(CI_LAY_BASE);
+    }
+
+    return false;
+
+  case LCTL_T(KC_ENTER):
+    if (pushed_layer == 0) {
+      return true;
+    }
+
+    if (record->event.pressed && record->tap.count > 0) {
+      tap_code(KC_ENTER);
+      set_single_default_layer(pushed_layer);
+      pushed_layer = 0;
+
+      return false;
+    }
+
+    return true;
+
+  default:
+    return true;
+  }
 }
