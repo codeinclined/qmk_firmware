@@ -44,7 +44,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed && pushed_layer == 0) {
       pushed_layer = get_highest_layer(default_layer_state);
       tap_code(KC_ENTER);
-      set_single_default_layer(CI_LAY_BASE);
+      set_single_default_layer(L_BASE);
     }
 
     return false;
@@ -67,9 +67,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   // Prevent any weirdness with switching default layers using DF(n)
   // while a layer is pushed by clearing the pushed_layer first.
   // Make sure to add any new default layers here
-  case DF(CI_LAY_BASE):
-  case DF(CI_LAY_WASD):
-  case DF(CI_LAY_LOL):
+  case DF(L_BASE):
+  case DF(L_WASD):
+  case DF(L_LOL):
     pushed_layer = 0;
     return true;
 

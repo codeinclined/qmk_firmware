@@ -14,21 +14,21 @@
 
 #else
 
-#define CP_ROSEWATER 150, 105, 95
-#define CP_FLAMINGO  150, 75, 75
-#define CP_PINK      150, 45, 110
-#define CP_MAUVE     70, 35, 150
-#define CP_RED       150, 8, 15
-#define CP_MAROON    140, 35, 45
-#define CP_PEACH     150, 55, 15
-#define CP_YELLOW    150, 115, 45
-#define CP_GREEN     45, 150, 40
-#define CP_TEAL      25, 150, 110
-#define CP_SKY       18, 115, 150
-#define CP_SAPPHIRE  12, 85, 150
-#define CP_BLUE      18, 50, 150
-#define CP_LAVENDER  55, 65, 150
-#define CP_OVERLAY   22, 26, 50
-#define CP_SURFACE   15, 18, 35
+#define CP_ROSEWATER 120, 84,  76
+#define CP_FLAMINGO  120, 60,  60
+#define CP_PINK      120, 36,  88
+#define CP_MAUVE     56,  28,  120
+#define CP_RED       120, 6,   12
+#define CP_MAROON    112, 28,  36
+#define CP_PEACH     120, 44,  12
+#define CP_YELLOW    120, 92,  36
+#define CP_GREEN     36,  120, 32
+#define CP_TEAL      20,  120, 88
+#define CP_SKY       14,  92,  120
+#define CP_SAPPHIRE  10,  68,  120
+#define CP_BLUE      14,  40,  120
+#define CP_LAVENDER  44,  52,  120
+#define CP_SURFACE   5,   6,   14
+#define CP_OVERLAY   18,  21,  40
 
 #endif

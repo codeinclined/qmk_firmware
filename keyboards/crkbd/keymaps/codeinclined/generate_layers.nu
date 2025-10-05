@@ -4,7 +4,7 @@ def generate_layers_h_names [] {
   get LAY
   | uniq
   | enumerate
-  | each {|r| $'#define CI_LAY_($r.item) ($r.index)'}
+  | each {|r| $'#define L_($r.item) ($r.index)'}
   | str join "\n"
 }
 
